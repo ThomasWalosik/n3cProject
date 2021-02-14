@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:id="@+id/line_condit"
+        android:background="@android:color/transparent">
+<!--
+    <Button
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_dialog_email" /> -->
+
+    <TextView
+            android:id="@+id/id_conditions_text"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Bienvenue sur la page Ordonnance"
+            android:textStyle="normal"
+            android:paddingTop="15dp"
+            android:textColor="@color/colorPrimary"/>
+</RelativeLayout>

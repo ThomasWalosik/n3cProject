@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">N3Cproject</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_retour">Retour ></string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_ordonnance">Mon Ordonnance</string>
+    <string name="menu_meditation">Espace Méditation</string>
+    <string name="menu_home">Page Principale</string>
+    <string name="welcome_ordonnance">Bienvenue sur la page de l\'ordonnance</string>
+    <string name="welcome_meditation">Bienvenue sur la page de méditation</string>
+    <string name="welcome_home">Bienvenue sur l\'application N3C</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@+id/nav_home">
+
+    <fragment
+            android:id="@+id/nav_home"
+            android:name="com.example.n3cproject.ui.home.HomeFragment"
+            tools:layout="@layout/page_home" />
+            <!--android:label="@string/menu_home"-->
+
+    <fragment
+            android:id="@+id/nav_ordonnance"
+            android:name="com.example.n3cproject.ui.ordonnance.OrdonnanceFragment"
+            tools:layout="@layout/page_ordonnance" />
+            <!-- android:label="@string/menu_ordonnance" -->
+
+    <fragment
+            android:id="@+id/nav_meditation"
+            android:name="com.example.n3cproject.ui.meditation.MeditationFragment"
+            tools:layout="@layout/page_meditation" />
+    <activity
+            android:id="@+id/rechercheFragment"
+            android:name="com.example.n3cproject.ui.recherche.RechercheActivity"
+            android:label="page_recherche"
+            tools:layout="@layout/app_bar_recherche"/>
+    <!--android:label="@string/menu_meditation"-->
+
+</navigation>
