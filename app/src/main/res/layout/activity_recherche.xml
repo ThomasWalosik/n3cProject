@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout_recherche"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/drawer_layout_recherche"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start">
+        tools:context=".ui.recherche.RechercheActivity">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_recherche"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_toolbar"
+            app:popupTheme="@style/AppTheme">
+
+        <Button
+                android:id="@+id/bouton_back_recherche"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/ic_menu_back"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recherche"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <include
-            layout="@layout/app_bar_recherche"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            layout="@layout/page_recherche"
+            android:layout_marginTop="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+</RelativeLayout>

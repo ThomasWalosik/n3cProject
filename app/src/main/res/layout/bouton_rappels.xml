@@ -7,6 +7,7 @@
         android:id="@+id/id_rappel_page_principale"
         android:background="@drawable/rappel_shape"
         tools:ignore="MissingConstraints"
+        android:clickable="true"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView

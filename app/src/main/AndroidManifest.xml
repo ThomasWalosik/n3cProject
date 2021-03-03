@@ -11,7 +11,7 @@
             android:label="@string/app_name">
 
         <activity
-                android:name=".MainActivity"
+                android:name=".ui.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
                 <!--android:label="@string/app_name"-->
 
@@ -22,6 +22,14 @@
         </activity>
 
         <activity android:name=".ui.recherche.RechercheActivity"
+                  android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".ui.ordonnance.OrdonnanceActivity"
+                  android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".ui.home.RappelsActivity"
                   android:theme="@style/AppTheme.NoActionBar">
         </activity>
 

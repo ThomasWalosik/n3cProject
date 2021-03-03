@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 public class MeditationViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private final MutableLiveData<String> mText;
 
     public MeditationViewModel() {
         mText = new MutableLiveData<>();
