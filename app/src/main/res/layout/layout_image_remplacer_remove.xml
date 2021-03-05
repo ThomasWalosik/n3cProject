@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="horizontal"
+                tools:context=".ui.ordonnance.OrdonnanceActivity"
+                android:id="@+id/id_layout_image_remplacer_remove">
+
+    <ImageView
+            android:id="@+id/image_preview"
+            android:layout_width="match_parent"
+            android:layout_height="660dp"
+            android:layout_marginBottom="60dp"/>
+
+    <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="670dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/id_remplacer_remove_ordonnance_buttons">
+
+        <!--RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/add_remove_image_ordonnance">
+
+        <TextView
+                android:id="@+id/textview_remplacer_ordonnance"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Remplacer"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:background="@drawable/add_remove_image_ordonnance">
+
+        <TextView
+                android:id="@+id/textview_remove_ordonnance"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="Supprimer"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"/>
+    </RelativeLayout>-->
+        <Button
+                android:id="@+id/button_remplacer"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/add_remove_image_ordonnance"
+                android:text="Supprimer"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_marginStart="120dp"
+                android:layout_marginLeft="120dp"/>
+
+        <Button
+                android:id="@+id/button_supprimer"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/add_remove_image_ordonnance"
+                android:text="Remplacer"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

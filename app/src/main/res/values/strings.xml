@@ -12,4 +12,54 @@
     <string name="welcome_ordonnance">Bienvenue sur la page de l\'ordonnance</string>
     <string name="welcome_meditation">Bienvenue sur la page de méditation</string>
     <string name="welcome_home">Bienvenue sur l\'application N3C</string>
+
+
+    <string name="cgu">"Conditions générales d’utilisation de l’application mobile
+
+Les présentes conditions générales d’utilisation ont pour objet de déterminer les règles d’utilisation de l’application mobile « N3C Cancer » éditée par ...
+En installant l’Application sur votre terminal et en accédant à l’Application, vous acceptez sans condition ni réserve l’intégralité des CGU définies ci-après. Si vous ne souhaitez pas accepter les présentes CGU, nous vous demandons de ne pas accéder à l’Application.
+Toute visite et/ou utilisation de l’Application doit se faire dans le respect des présentes CGU.
+
+Article 1. DEFINITIONS
+
+Article 2. OBJET DE L’APPLICATION
+
+Article 3. ACCES A L’APPLICATION
+
+Article 4. CONDITIONS FINANCIERES
+
+Article 5. APPLICATION DES CGU ET DES CGV
+
+Article 6. PROPRIETE INTELLECTUELLE DE L’APPLICATION
+
+Article 7. LICENCE D’UTILISATION
+
+Article 8. OBLIGATIONS DE L’UTILISATEUR
+
+Article 9. PROTECTION DES DONNEES PERSONNELLES
+
+Article 10. DISPONIBILITE DE L’APPLICATION
+
+Article 11. LIMITATION DE GARANTIE
+
+Article 12. EVOLUTION DES CONDITIONS GENERALES D'UTILISATION
+
+Article 13. RESILIATION
+
+Article 14. CONTACT
+
+Article 15. AVERTISSEMENT
+
+ARTICLE 16. LOI APPLICABLE
+"</string>
+
+    <string name="aide">"Ici, du texte"</string>
+    <string name="propos">"
+N3C utilise la licence APPACHE pour l’utilisation de puppeteer, GSON.jar, android.jar, JsonSimple.jar
+La licence MIT pour l’utilisation de node.js. et de Jsoup.
+
+Cette application est la propriété de ... et est open Source.
+
+Remerciements :
+"</string>
 </resources>

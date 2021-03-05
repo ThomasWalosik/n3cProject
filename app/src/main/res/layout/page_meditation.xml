@@ -36,5 +36,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/button_retour"
             tools:layout_editor_absoluteY="14dp"
-            tools:layout_editor_absoluteX="17dp"/>
+            tools:layout_editor_absoluteX="17dp"
+            tools:ignore="MissingConstraints"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

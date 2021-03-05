@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment"
+        android:id="@+id/relative_layout_button_rappel"
         tools:ignore="ExtraText">
 <!--
     <RelativeLayout
@@ -54,17 +54,18 @@
     </RelativeLayout>
 -->
     <include
+            android:id="@+id/button_rappel"
             layout="@layout/bouton_rappels"
             tools:layout_editor_absoluteY="50dp"
             tools:layout_editor_absoluteX="16dp"/>
 
-    <TextView
+    <!--TextView
             android:id="@+id/text_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal|center_vertical"/-->
     <!-- android:text="@string/welcome_home"-->
 
 </RelativeLayout>

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 public class RechercheViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private final MutableLiveData<String> mText;
 
     public RechercheViewModel() {
         mText = new MutableLiveData<>();

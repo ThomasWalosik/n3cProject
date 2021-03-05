@@ -10,7 +10,7 @@
         tools:openDrawer="start">
 
     <include
-            layout="@layout/app_bar_main_v2"
+            layout="@layout/app_bar_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -21,6 +21,16 @@
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer"/>
+            app:menu="@menu/activity_main_drawer">
+
+        <ExpandableListView
+                android:layout_marginTop="100dp"
+                android:id="@+id/expandableListView"
+                android:layout_width="match_parent"
+                android:layout_height="513dp"
+                android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+                android:divider="@android:color/white"
+                android:groupIndicator="@null"/>
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
