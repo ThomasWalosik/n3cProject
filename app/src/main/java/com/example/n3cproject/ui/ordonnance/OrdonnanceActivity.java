@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import com.example.n3cproject.R;
-
 import android.app.Dialog;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -28,6 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 
+import static com.example.n3cproject.ui.MainActivity.*;
 import static com.example.n3cproject.ui.MainActivity.isBackAnotherActivity;
 
 public class OrdonnanceActivity extends AppCompatActivity {
@@ -37,8 +37,9 @@ public class OrdonnanceActivity extends AppCompatActivity {
     private ImageView selectedImagePreview;
     private String selectedImagePath;
     private Toolbar navigationView;
-
-
+    public OrdonnanceActivity(){
+        System.out.println("JE SUIS DANS LE ORDONNANCE_ACTIVITY.java");
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,28 +165,5 @@ public class OrdonnanceActivity extends AppCompatActivity {
         // this is our fallback here
         return uri.getPath();
     }
-
-
-
-
-/*public class OrdonnanceFragment extends Fragment {
-
-    private OrdonnanceViewModel ordonnanceViewModel;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        ordonnanceViewModel =
-                ViewModelProviders.of(this).get(OrdonnanceViewModel.class);
-        View root = inflater.inflate(R.layout.page_ordonnance, container, false);
-        final TextView textView = root.findViewById(R.id.text_ordonnance);
-        ordonnanceViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
-    }
-}*/
 
 }
