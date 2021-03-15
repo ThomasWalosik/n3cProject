@@ -5,20 +5,21 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        tools:context=".ui.ordonnance.OrdonnanceActivity"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/app_bar_main">
+        tools:showIn="@layout/activity_ordonnance">
 
     <fragment
-            android:id="@+id/nav_host_fragment"
+            android:id="@+id/nav_host_fragment_ordonnance"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/mobile_navigation"
-            android:layout_marginTop="12dp">
+            app:defaultNavHost="false"
+            android:layout_marginTop="76dp"
+            app:navGraph="@navigation/mobile_navigation_ordonnance">
+
     </fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

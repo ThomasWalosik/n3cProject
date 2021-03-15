@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@drawable/gradient_up"
+    android:paddingTop="7dp"
+    android:paddingBottom="15dp"
+    android:id="@+id/lineairlayout_buttons"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+            android:id="@+id/tview_reinit"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Réinitialiser"
+            android:textColor="#EF5350"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginRight="20dp"/>
+    <!--app:fontFamily="@font/roboto_bold"-->
+
+    <TextView
+        android:id="@+id/tview_valider"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Valider"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+    <!--app:fontFamily="@font/roboto_bold"-->
+</LinearLayout>

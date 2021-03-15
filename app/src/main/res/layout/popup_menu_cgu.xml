@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/popupMenuCgu"
+        android:background="@drawable/button_ok"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:openDrawer="start">
+    <!--LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popupMenuCgu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:openDrawer="start"-->
+
+        <TextView
+            android:id="@+id/textView_cgu"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Conditions d'utilisations"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/scroller"
+            android:layout_width="600dp"
+            android:layout_height="550dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:fillViewport="true"
+            android:background="@color/colorGreyGradient"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/cgu_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/cgu"
+                android:textColor="#000000"
+                android:textSize="10dp"/>
+
+        </ScrollView>
+
+
+        <Button
+            android:id="@+id/button_ok"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="540dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_ok"
+            android:hint="OK"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+<!--/LinearLayout-->

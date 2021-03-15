@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    android:id="@+id/gradient_transparent">
+
+    <gradient
+        android:angle="90"
+        android:startColor="@color/colorWhite"
+        android:endColor="@android:color/transparent"
+        android:type="linear" />
+
+    <size
+        android:width="80dp"
+        android:height="30dp" />
+
+
+</shape>
