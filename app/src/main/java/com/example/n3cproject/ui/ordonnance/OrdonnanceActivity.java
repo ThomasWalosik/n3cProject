@@ -1,9 +1,13 @@
 package com.example.n3cproject.ui.ordonnance;
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,13 +40,15 @@ public class OrdonnanceActivity extends AppCompatActivity {
     private static final int SELECT_PICTURE = 1;
     private ImageView selectedImagePreview;
     private String selectedImagePath;
-    private Toolbar navigationView;
+    private static int RESULT_LOAD_IMAGE = 1;
+
     public OrdonnanceActivity(){
         System.out.println("JE SUIS DANS LE ORDONNANCE_ACTIVITY.java");
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_ordonnance);
         Toolbar toolbar_ordonnance = findViewById(R.id.toolbar_ordonnance);
         setSupportActionBar(toolbar_ordonnance);
@@ -73,9 +79,9 @@ public class OrdonnanceActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent,
-                        "Select Picture"), SELECT_PICTURE);
-                new OrdonnanceFragment();
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
+
+                //new OrdonnanceFragment();
                 /*Fragment someFragment = new OrdonnanceFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.nav_ordonnanceFragment, someFragment); // give your fragment container id in first parameter
@@ -98,6 +104,29 @@ public class OrdonnanceActivity extends AppCompatActivity {
                 .build();
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_ordonnance);
         //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            ImageView imageView = findViewById(R.id.image_preview);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+        }
+
+
     }
 /*
     @Override
@@ -129,7 +158,7 @@ public class OrdonnanceActivity extends AppCompatActivity {
         }
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    /*public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == SELECT_PICTURE) {
                 Uri selectedImageUri = data.getData();
@@ -137,7 +166,7 @@ public class OrdonnanceActivity extends AppCompatActivity {
             }
         }
     }
-
+*/
     /**
      * helper to retrieve the path of an image URI
      */

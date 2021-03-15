@@ -1,15 +1,19 @@
 package com.example.n3cproject.ui;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -17,13 +21,20 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.example.n3cproject.R;
+import com.example.n3cproject.ui.home.RappelsActivity;
 import com.example.n3cproject.ui.meditation.MeditationFragment;
 import com.example.n3cproject.ui.ordonnance.OrdonnanceActivity;
 import com.example.n3cproject.ui.recherche.RechercheActivity;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import static com.example.n3cproject.ui.ExpandableListAdapter.isClick_age;
+import static com.example.n3cproject.ui.ExpandableListAdapter.position_age;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static MainActivity activity;
@@ -44,21 +55,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String childList;
     //final Toolbar toolbar = findViewById(R.id.toolbar);
     Button button;
+    TextView button_passer;
     DrawerLayout drawer;
     static SharedPreferences pref;
-    SharedPreferences.Editor ed;
+    SharedPreferences.Editor editor; //SharedPreferences.Editor ed;
     public static int position_age2, position_poids2, position_type2;
     //TODO remplacer variable_global_... dans ExpandableListAdapter par MainActivity.prenom, etc
     static String prenom = "";
     static String age ="";
     static String poids ="";
     static  String type_cancer = "";
-    static Integer lastExpandedGroupPosition = -1;
 
     public MainActivity() {
-        System.out.println("JE SUIS DANS LE MAIN_ACTIVITY.java, isOpened="+isOpened);
-        isOpened=0;
-        System.out.println("JE SUIS DANS LE MAIN_ACTIVITY.java, et maintenant isOpened="+isOpened);
+        isOpened=Donnees.isOpen;
     }
 
     @Override
@@ -70,12 +79,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }*/
         //StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         //StrictMode.setThreadPolicy(policy);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         pref = getSharedPreferences(PREFS_NAME, 0); //0 = MODE_PRIVATE
-
         //setSupportActionBar(toolbar);
         //toolbar.setNavigationIcon(R.drawable.ic_menu_dots);
         // Masquer le texte dans la bar toolbar
@@ -105,12 +112,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-        this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         myDialog = new Dialog(this);
+        myDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         activity = this;
+        expandableListView = findViewById(R.id.expandableListView);
+
+
         Button button_search = findViewById(R.id.app_bar_main_search);
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,34 +180,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         //NavigationUI.setupWithNavController(navigationView, navController);
 
-
-        // pour reset les donnees de l'appli (infos perso) TODO a commenter
-        ed = pref.edit();
-        ed.putBoolean("firstrun", true);
-        ed.apply();
-
-        if (pref.getBoolean("firstrun", true)) {
-            SharedPreferences.Editor editor = pref.edit();
-            editor.putString("prenom","");
-            editor.putInt("ageID",0);
-            editor.putString("age","");
-            editor.putInt("poidsID",0);
-            editor.putString("poids","");
-            editor.putInt("typeCancerID",0);
-            editor.putString("type","");
-            editor.putBoolean("firstrun", false);
-            editor.apply();
-        } else {
-            isOpened=1;
-        }
-
         // récupère les valeurs enregistrés dans les variables prenom, age, poids et type de cancer à l'ouverture de l'application
         prenom = pref.getString("prenom","");
         age = pref.getString("age","");
         poids = pref.getString("poids","");
         type_cancer = pref.getString("type","");
-
-        expandableListView = findViewById(R.id.expandableListView);
 
         //String menuModel = "Info";
         //headerList.add(menuModel);
@@ -238,13 +226,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 if (groupPosition==0) { // si item Information Personnelles sélectionné
-                    //openCloseInformationPersonnelles();
+                    //EditText et = drawer.findViewById(R.id.editText_prenom);
                     parent.expandGroup(0);
                     if (isOpened == 0) { // item fermé
+                        prenom = pref.getString("prenom", "");
                         isOpened = 1;
                         return true;
                     } else { // item ouvert
                         isOpened = 0;
+                        pref.edit().putString(prenom, "").commit();
                         return false;
                     }
 
@@ -320,6 +310,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        //TODO Semble etre inutil a ecrire car le classe RappelsActivity est quand meme executée
         /*RelativeLayout button_rappel = findViewById(R.id.button_rappel);
         button_rappel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -328,6 +319,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });*/
+
+        //Open popup renseignement informations personnelles à la premiere ouverture
+        if(Donnees.firstRun == 0){
+            myDialog.setContentView(R.layout.popup_ouverture_info);
+            //myDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+            button_passer = myDialog.findViewById(R.id.textView_suivant_info);
+            button_passer.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    //myDialog.onBackPressed();
+                    myDialog.setContentView(R.layout.popup_menu_cgu);
+                    //myDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                    button_passer = myDialog.findViewById(R.id.button_ok);
+                    button_passer.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            myDialog.onBackPressed();
+                        }
+                    });
+                    myDialog.show();
+                }
+            });
+            myDialog.show();
+        }
+        // pour reset les donnees de l'appli (infos perso) TODO a commenter
+        if (Donnees.firstRun==0) {
+            editor = pref.edit();
+            editor.putString("prenom","");
+            editor.putInt("ageID",0);
+            editor.putString("age","");
+            editor.putInt("poidsID",0);
+            editor.putString("poids","");
+            editor.putInt("typeCancerID",0);
+            editor.putString("type","");
+            editor.commit();
+            Donnees.firstRun=1;
+        }
     }
 
     public void openCloseInformationPersonnelles() {
@@ -403,6 +431,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static void setPreferencesInfoPerso() {
         SharedPreferences.Editor editor;
         editor = pref.edit();
+        editor.putString("prenom", prenom);
         editor.putInt("ageID", position_age2);
         editor.putInt("poidsID", position_poids2);
         editor.putInt("typeCancerID", position_type2);
@@ -412,6 +441,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * This method is used to get shared object
      */
     public static void getPreferencesInfoPerso() {
+        pref.getString("prenom", "");
         pref.getInt("ageID", 0);
         pref.getInt("poidsID", 0);
         pref.getInt("typeCancerID", 0);

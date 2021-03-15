@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+                android:id="@+id/shape_down"
+                android:shape="rectangle">
+            <gradient
+                    android:angle="270"
+                    android:id="@+id/gradient_down"
+                    android:endColor="@color/colorWhite"
+                    android:centerColor="@color/colorWhite"
+                    android:startColor="@color/colorGreyGradient"
+                    android:type="linear" />
+
+        </shape>
+    </item>
+
+</layer-list>

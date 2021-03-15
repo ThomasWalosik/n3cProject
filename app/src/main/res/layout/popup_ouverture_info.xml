@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/popupOuvertureInfo"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginStart="30dp"
+              android:layout_marginEnd="30dp"
+              android:layout_marginTop="30dp"
+              android:layout_marginBottom="30dp"
+              android:background="@drawable/button_ok"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              android:gravity="center_vertical"
+              tools:openDrawer="start">
+
+    <TextView
+            android:id="@+id/textView_renseign_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+
+            android:text="Vous pouvez renseigner quelques informations pour un accompagnement personnalisé dans \n||| -> INFORMATIONS PERSONNELLES \n[Photo]"
+            android:textColor="#000000"
+            android:gravity="center_horizontal|center_vertical"/>
+
+    <!--EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:text="Votre prénom"
+            android:id="@+id/editTextTextPersonName"/>
+
+    <Spinner
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/spinner_ouverture_age"/>
+
+    <Spinner
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/spinner_ouverture_poids"/>
+
+    <Spinner
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/spinner_ouverture_type"/-->
+
+    <TextView
+            android:id="@+id/textView_suivant_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="bottom|end"
+            android:text="Suivant"
+            android:textStyle="italic|bold"
+            android:textColor="@color/colorOrange"/>
+
+</LinearLayout>

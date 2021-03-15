@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout_ordonnance"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.ordonnance.OrdonnanceActivity">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_ordonnance"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_toolbar"
+            app:popupTheme="@style/AppTheme">
+
+        <Button
+                android:id="@+id/bouton_back_ordonnance"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/ic_menu_back"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mon Ordonnance"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <include
+            layout="@layout/page_ordonnance"
+            android:layout_marginTop="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+
+    <!--ImageView
+            android:id="@+id/image_preview"
+            android:layout_width="match_parent"
+            android:layout_height="670dp"
+            android:layout_marginTop="60dp"
+            android:layout_below="@+id/btn_pick_multiple_images"
+            /-->
+    <!--
+    <TextView
+            android:id="@+id/text_recherche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="Bienvenue sur la page de recherche"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center_horizontal"/>-->
+</RelativeLayout>

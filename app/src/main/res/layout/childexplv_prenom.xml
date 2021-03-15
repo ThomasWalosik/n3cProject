@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gradient_down"
+    android:gravity="clip_vertical"
+    android:id="@+id/lineairlayout_editText_prenom">
+
+    <EditText
+        android:id="@+id/editText_prenom"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:hint="Prénom"
+        android:textColorHint="@color/colorGrey"
+        android:layout_marginLeft="8dp"
+        android:textSize="16sp"
+        android:visibility="visible"
+        android:singleLine="true"
+        android:background="@android:color/transparent"/>
+</LinearLayout>

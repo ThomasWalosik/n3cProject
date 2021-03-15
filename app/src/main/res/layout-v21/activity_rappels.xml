@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout_rappels"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.home.RappelsActivity">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <Toolbar
+            android:id="@+id/toolbar_rappels"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_toolbar"
+            app:popupTheme="@style/AppTheme">
+
+        <Button
+                android:id="@+id/bouton_back_rappels"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/ic_menu_back"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mes Rappels"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center"/>
+
+    </Toolbar>
+
+    <include
+            layout="@layout/page_rappels"
+            android:layout_marginTop="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

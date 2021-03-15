@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation_recherche"
+            app:startDestination="@+id/nav_recherche">
+
+    <activity
+            android:id="@+id/rechercheActivity"
+            android:name="com.example.n3cproject.ui.recherche.RechercheActivity"
+            android:label="page_recherche"
+            tools:layout="@layout/activity_recherche">
+
+    </activity>
+    <fragment
+            android:id="@+id/nav_rechercheFragment"
+            android:name="com.example.n3cproject.ui.ordonnance.OrdonnanceActivity"
+            android:label="layout_image_remplacer_remove"
+            tools:layout="@layout/layout_image_remplacer_remove">
+    <action
+            android:id="@+id/action_confirmationFragment_to_secondActivity"
+            app:destination="@id/rechercheActivity" />
+
+    </fragment>
+    <!--android:label="@string/menu_meditation"-->
+
+</navigation>
